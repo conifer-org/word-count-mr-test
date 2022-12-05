@@ -1,0 +1,25 @@
+[package]
+name = "dfs"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "master"
+path = "src/master/main.rs"
+
+[[bin]]
+name = "worker"
+path = "src/worker/main.rs"
+
+[[bin]]
+name = "client"
+path = "src/client/main.rs"
+
+[dependencies]
+tonic = "0.7"
+prost = "0.10"
+tokio = {version = "1.0", features = ["full"]}
+rand = "0.8.5"
+
+[build-dependencies]
+tonic-build = "0.7"

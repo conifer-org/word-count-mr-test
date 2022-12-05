@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package master;
+
+message WriteReq {
+  string data = 1;
+}
+
+message WriteRes {
+  map<string, uint64> wc_map = 1;
+}
+
+service Master {
+  rpc word_count(WriteReq) returns(WriteRes);
+}

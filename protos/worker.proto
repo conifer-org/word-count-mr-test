@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package worker;
+
+message MapReq {
+  string data = 1;
+}
+
+//message WcRes {
+//  map<string, uint64> wc_map = 1;
+//}
+
+message KeyVal {
+  string key = 1;
+  uint64 val = 2;
+}
+
+message MapRes {
+  repeated KeyVal list_key_val = 1;
+}
+
+message RedReq {
+  repeated KeyVal list_key_val = 1;
+}
+
+message RedRes {
+  map<string, uint64> wc_map = 1;
+}
+
+service Worker {
+  rpc mapper(MapReq) returns(MapRes);
+  rpc reducer(RedReq) returns(RedRes);
+}
